@@ -7,15 +7,13 @@ import store from './store/index'
 router.beforeEach((to, from, next) => {
     NProgress.start()
     const state = store.state
-    // if (to.path === '/login') {
-    //     next()
-    // }
     if (!state.token || !util.cookies.get('token')) {
         console.log('state.token', state.token)
         // 如果需要登录却未登录，则跳转到登录页
         if (to.path === '/login') {
             next()
         } else {
+            NProgress.done()
             next('/login')
         }
     } else {
