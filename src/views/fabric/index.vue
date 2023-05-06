@@ -73,7 +73,7 @@ export default {
                 // 如果不是点击在图形上，则执行你的操作
                 if (!isClickOnObject) {
                     // 执行你想要的操作
-                    that.createImage(img1, pointer)
+                    that.createImage(icon, pointer)
                 }
             })
         },
