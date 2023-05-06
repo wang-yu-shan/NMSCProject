@@ -6,7 +6,7 @@ import store from './store/index'
 // 路由拦截器
 router.beforeEach((to, from, next) => {
     NProgress.start()
-    const state = store.state
+    const state = store.state.user
     if (!state.token || !util.cookies.get('token')) {
         console.log('state.token', state.token)
         // 如果需要登录却未登录，则跳转到登录页

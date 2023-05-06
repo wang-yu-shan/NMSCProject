@@ -24,6 +24,16 @@ const routes = [
         component: () => import('../views/board/index.vue')
     },
     {
+        path: '/demo',
+        name: 'demo',
+        component: () => import('../views/demo/index.vue')
+    },
+    {
+        path: '/fabric',
+        name: 'fabric',
+        component: () => import('../views/fabric/index.vue')
+    },
+    {
         path: '/404',
         name: '404',
         Comment: () => import('../views/error/404.vue')

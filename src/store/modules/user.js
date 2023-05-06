@@ -5,6 +5,8 @@ const state = {
 
 const mutations = {
     SET_TOKEN (state, data) {
+        state.token = data
+        util.cookies.set('token', data)
     },
     REMOVE_TOKEN: (state) => {
     }

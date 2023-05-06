@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-export function login (data) {
+export function list (data) {
     return request({
-        url: '/login',
+        url: '/notice/list',
         method: 'post',
         data
     })
