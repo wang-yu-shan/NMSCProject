@@ -107,6 +107,14 @@ export default {
         addlistenerEvent (ele, pointer) {
             const { x, y } = pointer
             const that = this
+            ele.on('mousedown', function (e) {
+                // 禁止事件冒泡
+                e.e.stopPropagation()
+                ele.set({
+                    stroke: '#f6416c', // 边框颜色：粉色
+                    strokeWidth: 10 // 边框粗细：5p
+                })
+            })
             // 添加双击事件, 删除当前图片
             ele.on('mousedblclick', function (e) {
                 // 禁止事件冒泡
@@ -131,14 +139,19 @@ export default {
                 }
             })
             ele.on('mouseup', function (e) {
+                console.log('e', e)
                 // 获取设置的节点Id
-                var currentId = e.currentTarget._element.id
+                var currentId = e.target._element.id
                 // 找到当前节点, 重新设置x,y
                 var currentEle = that.pointers.find((item) => {
                     return item.id === currentId
                 })
-                currentEle.x = e.pointer.x - 30
-                currentEle.y = e.pointer.y - 30
+                ele.set({
+                    stroke: '#f6416c', // 边框颜色：粉色
+                    strokeWidth: 0 // 边框粗细：5p
+                })
+                currentEle.x = e.pointer.x < 0 ? 0 : e.pointer.x > 500 ? 500 - 60 : e.pointer.x - 30
+                currentEle.y = e.pointer.y < 0 ? 0 : e.pointer.y > 500 ? 500 - 60 : e.pointer.y - 30
                 localStorage.setItem('pointers', JSON.stringify(that.pointers))
             })
         }
