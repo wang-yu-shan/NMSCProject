@@ -44,12 +44,13 @@ export default {
                     ele.set({
                         scaleX: 60 / ele.width,
                         scaleY: 60 / ele.height,
-                        left: item.x - 30,
-                        top: item.y - 30
+                        left: item.x,
+                        top: item.y
                     })
+                    ele.hasControls = false
                     that.addlistenerEvent(ele, {
-                        x: item.x - 30,
-                        y: item.y - 30
+                        x: item.x,
+                        y: item.y
                     })
                     ele._element.id = item.id
                     that.canvas.add(ele)
@@ -87,6 +88,7 @@ export default {
                     left: x - 30,
                     top: y - 30
                 })
+                ele.hasControls = false
                 // 设置节点id,用于识别
                 ele._element.id = Math.random()
                 // 给图片注册事件
