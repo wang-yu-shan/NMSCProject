@@ -98,6 +98,7 @@ export default {
                     y,
                     id: ele._element.id
                 })
+                // 保存节点信息，后替换为接口请求
                 localStorage.setItem('pointers', JSON.stringify(that.pointers))
             })
         },
