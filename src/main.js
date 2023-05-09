@@ -10,7 +10,7 @@ import './assets/style/main.scss'
 import './assets/iconFont/iconfont.css'
 
 import './mock/index.js'
-import './permission.js'
+// import './permission.js'
 import './utils/auto-tootip'
 
 Vue.use(ElementUI)

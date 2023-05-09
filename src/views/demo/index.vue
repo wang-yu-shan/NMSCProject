@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { fabric } from 'fabric'
 import { list } from '../../api/notice'
 import VueSeamlessScroll from 'vue-seamless-scroll'
 export default {
@@ -44,44 +43,6 @@ export default {
         this.initList()
     },
     methods: {
-        initFabric () {
-            const img = require('../../assets/onepiace.webp')
-            const img1 = require('../../assets/微信图片_20221121152344.jpg')
-            this.canvas = new fabric.Canvas('myCanvas', {
-                allowScale: false
-            })
-            // 添加背景图片
-            const that = this
-            fabric.Image.fromURL(img, function (img) {
-                that.canvas.setBackgroundImage(img, that.canvas.renderAll.bind(that.canvas), {
-                    scaleX: that.canvas.width / img.width,
-                    scaleY: that.canvas.height / img.height,
-                    strech: true
-                })
-            })
-
-            this.canvas.on('mouse:dblclick', function (options) {
-            // 获取点击的坐标
-                var pointer = that.canvas.getPointer(options.e)
-                var posX = pointer.x
-                var posY = pointer.y
-                fabric.Image.fromURL(img1, function (ele) {
-                    ele.id = 'ddddd'
-                    ele.scale(0.1).set('left', posX).set('top', posY)
-                    that.canvas.add(ele)
-                    console.log('ele', 'width', ele)
-
-                    ele.on('mousedown', function (options) {
-                        console.log('我被点击了啊啊啊啊啊啊', options)
-                    })
-                    ele.on('mousemove', function (options) {
-                        console.log('我被移动了啊啊啊啊啊啊', options)
-                    })
-                })
-                // 在控制台输出点击的坐标
-                console.log('X:' + posX + ', Y:' + posY)
-            })
-        },
         async initList () {
             const res = await list()
             this.listData = res.data

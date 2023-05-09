@@ -20,8 +20,8 @@ export default {
         }
     },
     mounted () {
-        const bgImage = require('../../assets/onepiace.webp')
-        const icon = require('../../assets/微信图片_20221121152344.jpg')
+        const bgImage = require('../../assets/images/onepiace.webp')
+        const icon = require('../../assets/images/logo.png')
         this.initFabric(bgImage, icon)
     },
     methods: {

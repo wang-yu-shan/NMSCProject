@@ -36,7 +36,7 @@ const routes = [
     {
         path: '/404',
         name: '404',
-        Comment: () => import('../views/error/404.vue')
+        component: () => import('../views/error/404.vue')
     },
     {
         path: '*', // 页面不存在的情况下会跳到404页面
