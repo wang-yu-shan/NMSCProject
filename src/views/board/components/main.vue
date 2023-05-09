@@ -10,7 +10,8 @@
         </div>
         <div class="main-container-center">
             <TemplateCard v-toVh="436">
-                <TemplateTitle title="最新动态"></TemplateTitle>
+                <TemplateTitle title="最新动态">
+                </TemplateTitle>
             </TemplateCard>
             <TemplateCard v-toVh="456" class="main-container-center_bottom">
                 <TemplateTitle title="最新动态"></TemplateTitle>

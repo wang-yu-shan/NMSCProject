@@ -1,18 +1,13 @@
 <template>
-    <div class="template-container" :style="{height: height}">
+    <div class="template-container">
         <img class="star" src="../../assets/images/icon-star.png" alt="">
+        <!-- 自定义内容 -->
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        height: {
-            type: String,
-            default: '100vh'
-        }
-    }
 }
 </script>
 
@@ -23,11 +18,13 @@ export default {
     padding: vh(15) vw(15);
     position: relative;
     background: rgba(19,43,82,0.3);
+    z-index: 2;
 }
 img {
     width: vw(449);
-    height: vh(253);
+    height: vh(35);
     pointer-events: none;
+    z-index: 1;
 }
 .star {
     position: absolute;

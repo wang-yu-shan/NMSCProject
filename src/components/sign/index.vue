@@ -9,10 +9,6 @@
 <script>
 export default {
     props: {
-        float: {
-            type: String,
-            default: 'right'
-        },
         styles: {
             type: Object,
             default: () => {

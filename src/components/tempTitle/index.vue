@@ -1,6 +1,7 @@
 <template>
     <div class="template-title">
         <div class="title">{{ title }}</div>
+        <!-- 标题右侧自定义内容 -->
         <slot></slot>
     </div>
 </template>
