@@ -1,7 +1,7 @@
 <template>
     <div class="login-wrapper">
         <div class="login-wrapper_form">
-            <canvas id="myCanvas" width="500" height="500"></canvas>
+            <canvas id="myCanvas" :width="width" :height="500"></canvas>
         </div>
     </div>
 </template>
@@ -9,6 +9,16 @@
 <script>
 import { fabric } from 'fabric'
 export default {
+    props: {
+        width: {
+            type: Number,
+            default: 500
+        },
+        height: {
+            type: Number,
+            default: 500
+        }
+    },
     data () {
         return {
             form: {},
@@ -26,6 +36,7 @@ export default {
         window.addEventListener('resize', this.handleResize)
     },
     methods: {
+        // 监听resize事件 重新绘制图形
         handleResize () {
             const canvas = document.querySelector('canvas')
             if (!canvas) return false
