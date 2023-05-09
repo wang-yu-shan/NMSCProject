@@ -23,8 +23,22 @@ export default {
         const bgImage = require('../../assets/images/onepiace.webp')
         const icon = require('../../assets/images/logo.png')
         this.initFabric(bgImage, icon)
+        window.addEventListener('resize', this.handleResize)
     },
     methods: {
+        handleResize () {
+            const canvas = document.querySelector('canvas')
+            if (!canvas) return false
+            const rect = this.canvas.getBoundingClientRect()
+            const context = canvas.getContext('2d')
+            const canvasWidth = rect.width
+            const canvasHeight = rect.height
+            const scale = window.devicePixelRatio
+            this.canvas.width = canvasWidth * scale
+            this.canvas.height = canvasHeight * scale
+            context.scale(scale, scale)
+            // 在此重新绘制图形
+        },
         // initFabric 初始化画布 bgImage 背景图片  icon 图片
         initFabric (bgImage, icon) {
             this.canvas = new fabric.Canvas('myCanvas')
